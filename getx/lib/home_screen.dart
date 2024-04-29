@@ -23,7 +23,7 @@ class _SnackBarScreenState extends State<SnackBarScreen> {
       ],),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Get.snackbar("Learn Getx", "Hello Hafsa Abid I want to learn about Getx in flutter")
+          Get.snackbar("Learn Getx", "Hello Hafsa Abid I want to learn about Getx in flutter");
           SnackPosition: SnackPosition.BOTTOM;
           // SnackPosition: SnackPosition.TOP;
           

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx/Get_theme.dart';
 
 class GetXUtilScreen extends StatefulWidget {
   const GetXUtilScreen({Key? key}) : super(key: key);
@@ -9,11 +10,27 @@ class GetXUtilScreen extends StatefulWidget {
 }
 
 class _GetXUtilScreenState extends State<GetXUtilScreen> {
+final setTheme = Get.put(CtrlTheme());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('GetX Tutorials'),
+        actions: [
+
+
+          Switch(
+            value: setTheme.isLightTheme,// Add a comma here
+            onChanged: (val) {
+              setTheme.isLightTheme = val;
+              Get.changeThemeMode(
+                setTheme.isLightTheme ? ThemeMode.light : ThemeMode.dark,
+              );
+              setTheme.saveThemeStatus();
+            },
+          ),
+
+        ],
       ),
       body: Column(
         children: [
@@ -25,7 +42,6 @@ class _GetXUtilScreenState extends State<GetXUtilScreen> {
                     'this is my appppppppppppppppp lol' ,
                     icon: Icon(Icons.add),
                     onTap: (snap){
-
                     },
                     mainButton: TextButton(onPressed: (){}, child: Text('Click')),
                     backgroundColor: Colors.blue ,
@@ -39,7 +55,6 @@ class _GetXUtilScreenState extends State<GetXUtilScreen> {
           Card(
             child: ListTile(
               onTap: (){
-
                 Get.bottomSheet(
                   Container(
                     decoration:  const BoxDecoration(
